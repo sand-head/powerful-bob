@@ -15,7 +15,7 @@ dnf5 -y copr disable yalter/niri-git
 
 # Install Noctalia (in terra repo)
 
-sudo dnf install noctalia-shell
+dnf5 -y install --setopt=install_weak_deps=False noctalia-shell
 
 #### Example for enabling a System Unit File
 
