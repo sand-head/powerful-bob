@@ -4,21 +4,19 @@ set -ouex pipefail
 
 ### Install packages
 
-# Packages can be installed from any enabled yum repo on the image.
-# RPMfusion repos are available by default in ublue main images
-# List of rpmfusion packages can be found here:
-# https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
+# Install Niri
 
-# this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 -y copr enable yalter/niri-git
+echo "priority=1" | tee -a /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:yalter:niri-git.repo
+dnf -y --enablerepo copr:copr.fedorainfracloud.org:yalter:niri-git \
+    install --setopt=install_weak_deps=False \
+    niri
+dnf5 -y copr disable yalter/niri-git
 
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
+# Install Noctalia (in terra repo)
+
+sudo dnf install noctalia-shell
 
 #### Example for enabling a System Unit File
 
-systemctl enable podman.socket
+# systemctl enable podman.socket
