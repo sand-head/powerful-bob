@@ -49,6 +49,8 @@ dnf5 -y install --setopt=install_weak_deps=False noctalia-shell
 # make release
 # sudo make install
 
+dnf5 -y install udiskie
+
 # Disable COPR repos
 
 dnf5 -y copr disable yalter/niri-git
@@ -57,8 +59,14 @@ dnf5 config-manager setopt terra.enabled=0 terra-extras.enabled=0
 
 ### Example for enabling a System Unit File
 
+add_wants_niri() {
+    sed -i "s/\[Unit\]/\[Unit\]\nWants=$1/" "/usr/lib/systemd/user/niri.service"
+}
+add_wants_niri udiskie.service
+cat /usr/lib/systemd/user/niri.service
+
 # systemctl enable podman.socket
-systemctl --user add-wants niri.service
+systemctl enable --global udiskie.service
 
 ### Misc tweaks
 
