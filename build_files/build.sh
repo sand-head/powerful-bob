@@ -47,7 +47,7 @@ dnf5 -y install \
     nodejs-npm
 npm -v
 git clone https://github.com/vicinaehq/vicinae.git && cd vicinae
-make host-optimized
+make release
 sudo make install
 
 # Disable COPR repos
