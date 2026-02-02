@@ -43,7 +43,8 @@ dnf5 -y install \
     protobuf-devel \
     libicu-devel \
     cmark-gfm-devel \
-    ninja-build
+    ninja-build \
+    nodejs
 git clone https://github.com/vicinaehq/vicinae.git && cd vicinae
 make host-optimized
 sudo make install
