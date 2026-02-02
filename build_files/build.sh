@@ -62,11 +62,12 @@ dnf5 config-manager setopt terra.enabled=0 terra-extras.enabled=0
 add_wants_niri() {
     sed -i "s/\[Unit\]/\[Unit\]\nWants=$1/" "/usr/lib/systemd/user/niri.service"
 }
-add_wants_niri udiskie.service
+# add_wants_niri udiskie.service
 cat /usr/lib/systemd/user/niri.service
 
 # systemctl enable podman.socket
-systemctl enable --global udiskie.service
+systemctl enable --global noctalia.service
+# systemctl enable --global udiskie.service
 
 ### Misc tweaks
 
