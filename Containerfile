@@ -4,7 +4,7 @@ COPY build_files /build
 COPY system_files /files
 
 # Base Image
-FROM ghcr.io/ublue-os/bazzite-dx:stable
+FROM ghcr.io/ublue-os/bazzite-dx-gnome:stable
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
