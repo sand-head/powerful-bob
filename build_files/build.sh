@@ -44,7 +44,7 @@ dnf5 -y install \
     libicu-devel \
     cmark-gfm-devel \
     ninja-build \
-    nodejs
+    nodejs22
 git clone https://github.com/vicinaehq/vicinae.git && cd vicinae
 make host-optimized
 sudo make install
