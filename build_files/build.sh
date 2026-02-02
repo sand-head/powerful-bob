@@ -23,32 +23,31 @@ dnf5 -y install --setopt=install_weak_deps=False noctalia-shell
 
 # Install Vicinae
 
-dnf5 -y install \
-    qt6-qtbase-devel \
-    qt6-qtsvg-devel \
-    qt6-qtbase-private-devel \
-    qt6-qtwayland-devel \
-    layer-shell-qt-devel \
-    libqalculate-devel \
-    minizip-devel \
-    rapidfuzz-cpp-devel \
-    qtkeychain-qt6-devel \
-    openssl-devel \
-    wayland-devel \
-    glibc-static \
-    libstdc++-static \
-    zlib-devel \
-    zlib-static \
-    abseil-cpp-devel \
-    protobuf-devel \
-    libicu-devel \
-    cmark-gfm-devel \
-    ninja-build \
-    nodejs-npm
-npm -v
-git clone https://github.com/vicinaehq/vicinae.git && cd vicinae
-make release
-sudo make install
+# dnf5 -y install \
+#     qt6-qtbase-devel \
+#     qt6-qtsvg-devel \
+#     qt6-qtbase-private-devel \
+#     qt6-qtwayland-devel \
+#     layer-shell-qt-devel \
+#     libqalculate-devel \
+#     minizip-devel \
+#     rapidfuzz-cpp-devel \
+#     qtkeychain-qt6-devel \
+#     openssl-devel \
+#     wayland-devel \
+#     glibc-static \
+#     libstdc++-static \
+#     zlib-devel \
+#     zlib-static \
+#     abseil-cpp-devel \
+#     protobuf-devel \
+#     libicu-devel \
+#     cmark-gfm-devel \
+#     ninja-build \
+#     nodejs-npm
+# git clone https://github.com/vicinaehq/vicinae.git && cd vicinae
+# make release
+# sudo make install
 
 # Disable COPR repos
 
