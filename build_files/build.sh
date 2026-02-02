@@ -42,7 +42,8 @@ dnf5 -y install \
     abseil-cpp-devel \
     protobuf-devel \
     libicu-devel \
-    cmark-gfm-devel
+    cmark-gfm-devel \
+    ninja-build
 git clone https://github.com/vicinaehq/vicinae.git && cd vicinae
 make host-optimized
 sudo make install
