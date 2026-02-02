@@ -49,7 +49,11 @@ dnf5 -y install --setopt=install_weak_deps=False noctalia-shell
 # make release
 # sudo make install
 
-dnf5 -y install udiskie
+dnf5 -y install \
+    udiskie \
+    alacritty \
+    brightnessctl \
+    fuzzel
 
 # Disable COPR repos
 
@@ -62,11 +66,14 @@ dnf5 config-manager setopt terra.enabled=0 terra-extras.enabled=0
 add_wants_niri() {
     sed -i "s/\[Unit\]/\[Unit\]\nWants=$1/" "/usr/lib/systemd/user/niri.service"
 }
-add_wants_niri noctalia.service
-add_wants_niri udiskie.service
-cat /usr/lib/systemd/user/niri.service
+# add_wants_niri noctalia.service
+# add_wants_niri udiskie.service
+# cat /usr/lib/systemd/user/niri.service
 
 cp -avf "/ctx/files"/. /
+
+systemctl --user add-wants niri.service noctalia.service
+systemctl --user add-wants niri.service udiskie.service
 
 # systemctl enable podman.socket
 systemctl enable --global noctalia.service
