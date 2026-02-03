@@ -53,7 +53,15 @@ dnf5 -y install \
     udiskie \
     alacritty \
     brightnessctl \
-    fuzzel
+    fuzzel \
+    chezmoi
+
+dnf install -y \
+    default-fonts-core-emoji \
+    google-noto-color-emoji-fonts \
+    google-noto-emoji-fonts \
+    glibc-all-langpacks \
+    default-fonts
 
 # Disable COPR repos
 
@@ -76,10 +84,16 @@ cp -avf "/ctx/files"/. /
 # systemctl --user add-wants niri.service udiskie.service
 
 # systemctl enable podman.socket
+systemctl enable --global chezmoi-init.service
+systemctl enable --global chezmoi-update.timer
 systemctl enable --global noctalia.service
 systemctl enable --global udiskie.service
+systemctl preset --global chezmoi-init
+systemctl preset --global chezmoi-update
 
 ### Misc tweaks
+
+fc-cache --force --really-force --system-only --verbose
 
 HOME_URL="https://github.com/sand-head/powerful-bob"
 echo "powerful-bob" | tee "/etc/hostname"
