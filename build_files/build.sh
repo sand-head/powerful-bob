@@ -64,6 +64,7 @@ dnf5 -y install \
     google-noto-color-emoji-fonts \
     google-noto-emoji-fonts \
     glibc-all-langpacks \
+    cascadia-code-fonts \
     default-fonts
 
 # Disable COPR repos
@@ -93,8 +94,8 @@ systemctl enable --global chezmoi-update.timer
 systemctl enable --global noctalia.service
 systemctl enable --global shikane.service
 systemctl enable --global udiskie.service
-systemctl preset --global chezmoi-init
-systemctl preset --global chezmoi-update
+# systemctl preset --global chezmoi-init
+# systemctl preset --global chezmoi-update
 
 ### Misc tweaks
 
