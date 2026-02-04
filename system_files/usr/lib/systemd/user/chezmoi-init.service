@@ -5,7 +5,7 @@ ConditionPathExists=!%h/.config/powerful-bob/chezmoi
 [Service]
 ExecStart=mkdir -p %h/.config/powerful-bob/chezmoi
 ExecStart=touch %h/.config/powerful-bob/chezmoi/chezmoi.toml
-ExecStart=chezmoi apply -S /usr/share/powerful-bob/zdots --config %h/.config/powerful-bob/chezmoi/chezmoi.toml
+ExecStart=chezmoi apply -S /usr/share/powerful-bob --config %h/.config/powerful-bob/chezmoi/chezmoi.toml
 Type=oneshot
 
 [Install]

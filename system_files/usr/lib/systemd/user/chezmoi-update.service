@@ -4,5 +4,5 @@ Description=Chezmoi Update
 [Service]
 ExecStart=mkdir -p %h/.config/powerful-bob/chezmoi
 ExecStart=touch %h/.config/powerful-bob/chezmoi/chezmoi.toml
-ExecStart=sh -c 'yes s | chezmoi apply --no-tty --keep-going -S /usr/share/powerful-bob/zdots --verbose --config %h/.config/powerful-bob/chezmoi/chezmoi.toml'
+ExecStart=sh -c 'yes s | chezmoi apply --no-tty --keep-going -S /usr/share/powerful-bob --verbose --config %h/.config/powerful-bob/chezmoi/chezmoi.toml'
 Type=oneshot
