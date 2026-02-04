@@ -6,6 +6,7 @@ set -ouex pipefail
 
 # Setup COPR repos
 
+dnf5 -y copr enable sand-head/packages
 dnf5 -y copr enable yalter/niri-git
 dnf5 -y copr enable quadratech188/cmark-gfm
 dnf5 config-manager setopt terra.enabled=1 terra-extras.enabled=1
@@ -56,9 +57,7 @@ dnf5 -y install \
     fuzzel \
     chezmoi \
     wdisplays \
-    cargo
-
-cargo install shikane
+    shikane
 
 dnf5 -y install \
     default-fonts-core-emoji \
@@ -69,6 +68,7 @@ dnf5 -y install \
 
 # Disable COPR repos
 
+dnf5 -y copr disable sand-head/packages
 dnf5 -y copr disable yalter/niri-git
 dnf5 -y copr disable quadratech188/cmark-gfm
 dnf5 config-manager setopt terra.enabled=0 terra-extras.enabled=0
