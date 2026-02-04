@@ -1,0 +1,11 @@
+[Unit]
+Description=Shikane
+PartOf=graphical-session.target
+After=graphical-session.target
+
+[Service]
+ExecStart=shikane
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

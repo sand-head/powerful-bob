@@ -54,9 +54,13 @@ dnf5 -y install \
     alacritty \
     brightnessctl \
     fuzzel \
-    chezmoi
+    chezmoi \
+    wdisplays \
+    cargo
 
-dnf install -y \
+cargo install shikane
+
+dnf5 -y install \
     default-fonts-core-emoji \
     google-noto-color-emoji-fonts \
     google-noto-emoji-fonts \
@@ -87,6 +91,7 @@ cp -avf "/ctx/files"/. /
 systemctl enable --global chezmoi-init.service
 systemctl enable --global chezmoi-update.timer
 systemctl enable --global noctalia.service
+systemctl enable --global shikane.service
 systemctl enable --global udiskie.service
 systemctl preset --global chezmoi-init
 systemctl preset --global chezmoi-update
