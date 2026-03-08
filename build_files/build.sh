@@ -57,12 +57,10 @@ add_wants_niri() {
 }
 add_wants_niri noctalia.service
 add_wants_niri udiskie.service
+add_wants_niri vicinae.service
 # cat /usr/lib/systemd/user/niri.service
 
 cp -avf "/ctx/files"/. /
-
-# systemctl --user add-wants niri.service noctalia.service
-# systemctl --user add-wants niri.service udiskie.service
 
 # systemctl enable podman.socket
 systemctl enable --global chezmoi-init.service
